@@ -1,6 +1,6 @@
 // 제목 : 1149
 // 티어 : 실버1
-// 링크 : https://www.acmicpc.net/problem/
+// 링크 : https://www.acmicpc.net/problem/1149
 // 메모리(kb) : 14532
 // 실행시간(ms) : 136
 
