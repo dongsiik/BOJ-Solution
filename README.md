@@ -12,3 +12,5 @@ https://solved.ac/problems/level
 Java 코드는 파일명과 클래스명을 모두 Main으로 바꾸어야 정상 작동합니다.
 
 코드가 비효율적이거나 결함이 있을 수 있습니다.
+
+![Solved.ac프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=floatingice)
