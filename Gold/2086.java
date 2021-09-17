@@ -1,26 +1,34 @@
-// 제목 : 피보나치 수 6
-// 티어 : 골드 3
-// 링크 : https://www.acmicpc.net/problem/11444
-// 메모리(kb) : 14240
-// 실행시간(ms) : 128
+// 제목 : 피보나치 수의 합
+// 티어 : 골드 1
+// 링크 : https://www.acmicpc.net/problem/2086
+// 메모리(kb) : 14176
+// 실행시간(ms) : 120
+
+// 아이디어 : 피보나치 수열의 1항부터 n항까지 합은 F(n+2)-1과 같습니다.
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class Main {
 
 	// 나머지를 구할 때 나누는 수
-	static final int divisor = 1000000007;
+	static final int divisor = 1_000_000_000;
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
 
 		// 입력
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		long n = Long.parseLong(br.readLine());
-
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		long a = Long.parseLong(st.nextToken());
+		long b = Long.parseLong(st.nextToken());
+		
+		long answer = getFibo(b+2)-getFibo(a+1);
+		if(answer<0) answer += divisor;
+		
 		// 출력
-		System.out.println(getFibo(n));
+		System.out.println(answer);
 	}
 
 	static void matrixMultiply(long[][] A, long[][] B) {
