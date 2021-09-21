@@ -17,8 +17,6 @@ import java.util.StringTokenizer;
 
 public class Main {
 
-	static int divisor = 1_000_000_007;
-
 	public static void main(String[] args) throws NumberFormatException, IOException {
 
 		// 입력 도구
