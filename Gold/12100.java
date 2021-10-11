@@ -2,8 +2,8 @@
 // 제목 : 2048(Easy)
 // 티어 : 골드 2
 // 링크 : https://www.acmicpc.net/problem/12100
-// 메모리(kb) : 16564
-// 실행시간(ms) : 216
+// 메모리(kb) : 16576
+// 실행시간(ms) : 200
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -44,7 +44,7 @@ public class Main {
 				initialBoard[i][j] = Integer.parseInt(st.nextToken());
 		}
 
-		answer = 0;
+		answer = getMax(initialBoard);
 	}
 
 	static void dfs(int[][] board, int level) {
@@ -64,8 +64,8 @@ public class Main {
 			// 보드 이동시키기
 			simulate(copyOfBoard, direction);
 
-			// 최댓값을 갱신할 가능성이 보인다면, 다음 단계로 넘어감
-			if (isPromising(copyOfBoard, level + 1)) {
+			// 이동해서 전과 달라졌고, 최댓값을 갱신할 가능성이 보인다면, 다음 단계로 넘어감
+			if (!checkSame(board, copyOfBoard) && isPromising(copyOfBoard, level + 1)) {
 				dfs(copyOfBoard, level + 1);
 			}
 		}
@@ -191,6 +191,17 @@ public class Main {
 
 	}
 
+	// 블록이 이동 후 달라졌는지 확인하는 함수
+	static boolean checkSame(int[][] board, int[][] copyOfBoard) {
+
+		for (int i = 0; i < N; i++)
+			for (int j = 0; j < N; j++)
+				if (board[i][j] != copyOfBoard[i][j])
+					return false;
+
+		return true;
+	}
+
 	// 최댓값을 갱신할 수 있는지 따져보기. 한 번 이동에서 최댓값은 잘해야 2배 증가하므로, 2배씩 증가했을 때 현재 최댓값과 비교
 	static boolean isPromising(int[][] board, int level) {
 
@@ -219,4 +230,5 @@ public class Main {
 				copyOfBoard[i][j] = board[i][j];
 
 	}
+
 }
