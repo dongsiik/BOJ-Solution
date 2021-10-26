@@ -1,7 +1,7 @@
 
 // 제목 : Team Selection
 // 티어 : 골드 1
-// 링크 : https://www.acmicpc.net/problem/172420
+// 링크 : https://www.acmicpc.net/problem/17240
 // 메모리(kb) : 30900
 // 실행시간(ms) : 400
 
