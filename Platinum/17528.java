@@ -1,8 +1,8 @@
 // 제목 : Two Machines
 // 티어 : 플래티넘 5
 // 링크 : https://www.acmicpc.net/problem/17528
-// 메모리(kb) : 15112
-// 실행시간(ms) : 188
+// 메모리(kb) : 14792
+// 실행시간(ms) : 200
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -22,7 +22,7 @@ class Main {
 		// 작업 수
 		int N = Integer.parseInt(br.readLine());
 
-		// 작업별 소요시간
+		// 기계별 작엽당 소요시간
 		int[] A = new int[N];
 		int[] B = new int[N];
 
@@ -32,42 +32,35 @@ class Main {
 			B[i] = Integer.parseInt(st.nextToken());
 		}
 
-		// dp[i] = j 현재 단계에서 A쪽에서 걸린 시간이 i일 때, B쪽에서 걸린 최소 시간
-		// dp를 2차원 배열로 저장하면 메모리가 부족해져서, 이전과 현재를 1차원 배열로 저장하면서 쓸 예정
-		int[] prevDp = new int[MAX + 1];
+		// dp[i] = j는 현재 단계에서 A 기계에서 쓴 시간이 총 i일 때, B 기계에서 쓴 총 시간의 최솟값이 j라는 뜻
 		int[] dp = new int[MAX + 1];
-		int[] temp;
 
-		// 처음에는 A쪽, B쪽에서 걸린 시간이 모두 0이고, 나머지는 모두 무한대값을 넣어야함
+		// 처음에는 A, B에서 걸린 시간이 모두 0이고, 나머지는 모두 무한대값을 넣어야함
 		for (int i = 1; i <= MAX; i++) {
 			dp[i] = MAX;
 		}
 
 		// N개의 작업 동안
 		for (int i = 1; i <= N; i++) {
-			// 배열 swap
-			temp = prevDp;
-			prevDp = dp;
-			dp = temp;
 
-			for (int j = 0; j <= MAX; j++) {
-				// 이전 단계에서 B 기계 작동시키기
-				dp[j] = prevDp[j] + B[i - 1];
-				// 이전 단계에서 A 기계 작동시킨 것과 비교
+			for (int j = MAX; j >= 0; j--) {
+				// B기계 작동시키기
+				dp[j] = dp[j] + B[i - 1];
+				// 이전 단계에서 A기계 작동시킨 것과 비교
 				if (j >= A[i - 1])
-					dp[j] = Math.min(dp[j], prevDp[j - A[i - 1]]);
+					dp[j] = Math.min(dp[j], dp[j - A[i - 1]]);
+
 			}
+
 		}
 
-		// 마지막 단계에서, A와 B 작동시간 중 최댓값 중 최솟값 비교
+		// 마지막 단계에서 A, B의 작동시간 중 최댓값 중 최솟값과 비교
 		int answer = MAX;
 		for (int i = 0; i <= MAX; i++) {
 			answer = Math.min(answer, Math.max(dp[i], i));
 		}
 
-		// 출력
 		System.out.println(answer);
-
 	}
 
 }
