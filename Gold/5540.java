@@ -37,15 +37,15 @@ class Main {
 			for (int j = S; j >= B; j--) {
 				dp[j] = Math.max(dp[j], dp[j - B] + A);
 			}
+			
+			for(int j=1;j<=T;j++) {
+				dp[j] = Math.max(dp[j], dp[j-1]);
+			}
 
 		}
 
-		// dp 테이블에서 최댓값 구하기
-		int answer = 0;
-		for (int i = 0; i <= T; i++)
-			answer = Math.max(answer, dp[i]);
 		// 출력
-		System.out.println(answer);
+		System.out.println(dp[T]);
 	}
 
 }
