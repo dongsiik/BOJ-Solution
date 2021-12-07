@@ -1,3 +1,9 @@
+// 제목 : 난개발
+// 티어 : 골드 3
+// 링크 : https://www.acmicpc.net/problem/19584
+// 메모리(kb) : 9072
+// 실행시간(ms) : 188
+
 #include <iostream>
 #include <queue>
 using namespace std;
