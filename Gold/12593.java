@@ -2,8 +2,8 @@
 // 제목 : Theme Park (Small)
 // 티어 : 골드 3
 // 링크 : https://www.acmicpc.net/problem/12593
-// 메모리(kb) : 
-// 실행시간(ms) : 
+// 메모리(kb) : 14088
+// 실행시간(ms) : 124
 
 import java.io.BufferedReader;
 import java.io.IOException;
