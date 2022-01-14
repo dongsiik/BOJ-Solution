@@ -33,7 +33,7 @@ public class Main {
 		// 배열 입력받기. 변경하며 int 범위를 초과할 수 있어서 long으로 배열을 만들었습니다.
 		long[] arr = new long[n];
 		for (int i = 0; i < n; i++) {
-			arr[i] = Integer.parseInt(br.readLine());
+			arr[i] = Long.parseLong(br.readLine());
 		}
 
 		// 세그먼트 트리 만들기
